@@ -3,7 +3,7 @@ use warnings;
 
 package XML::BindData;
 {
-  $XML::BindData::VERSION = '0.0.2';
+  $XML::BindData::VERSION = '0.0.3';
 }
 
 use XML::LibXML;
@@ -66,6 +66,8 @@ sub parse_node {
 
 sub _get {
 	my ($context, $key) = @_;
+
+	return '' if !defined $key;
 
 	return $context if $key eq 'this';
 
@@ -146,7 +148,7 @@ XML::BindData - Bind data structures into XML
 
     print XML::BindData->bind($source_xml, $data);
 
-=head2 Output (identation added for clarity)
+=head2 Output (indentation added for clarity)
 
     <request>
       <type>add</type>
@@ -201,16 +203,16 @@ This has the following benefits:
 
 =item 2. The template is itself valid XML and can be edited as such.
 
-=item 3. The scope of intentionally limited to simple bindings (as opposed to
+=item 3. The scope is intentionally limited to simple bindings (as opposed to
 XSLT which can be arbitrarily complex).
 
-=item 4. It should be possible to use existing, complex, internal data
+=item 4. It is intended to be possible to use existing, complex, internal data
 structures for the binding.
 
 =back
 
 The module is probably I<not> appropriate if you are already happily using
-XSLT, Template::Toolkit, etc. for XML generation.
+XSLT, Template Toolkit, etc. for XML generation.
 
 =head1 SUBROUTINES/METHODS
 
@@ -219,7 +221,7 @@ XSLT, Template::Toolkit, etc. for XML generation.
 =item XML::BindData->bind($xml_string, \%data)
 
 This forms the entire public API to the module. It will parse the XML and
-traverse the resulting tree, binding the information in data.
+traverse the resulting tree, binding the information in %data.
 
 =back
 
