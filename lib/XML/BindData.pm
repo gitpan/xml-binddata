@@ -2,10 +2,7 @@ use strict;
 use warnings;
 
 package XML::BindData;
-{
-  $XML::BindData::VERSION = '0.0.3';
-}
-
+$XML::BindData::VERSION = '0.1.0';
 use XML::LibXML;
 
 sub bind {
@@ -43,6 +40,7 @@ sub parse_node {
 			parse_node($new, $subcontext);
 			$parent->appendChild($new);
 		}
+		return;
 	}
 
 	if (my $binding = _strip_attr($node, 'tmpl-bind')) {
@@ -263,4 +261,11 @@ attributes can be assigned at a time, separated by commas.
 
 =back
 
+=head1 CONTRIBUTORS
+
+=over
+
+=item Gareth Harper - GHARPER
+
+=back
 
