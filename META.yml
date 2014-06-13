@@ -17,7 +17,9 @@ name: xml-binddata
 requires:
   XML::LibXML: '0'
 resources:
+  bugtracker: https://github.com/cursork/xml-binddata/issues
   repository: git://github.com/cursork/xml-binddata.git
-version: 0.1.0
+version: 0.1.1
 x_contributors:
   - 'Gareth Harper <gharper@cpan.org>'
+  - 'Chris Pereira'
